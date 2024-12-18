@@ -1,0 +1,301 @@
+:root {
+    --primary-color: #230050;
+    --secondary-color: #3D1075;
+    --accent-color: #9C27B0;
+    --accent-light: #BA68C8;
+    --text-primary: #E6E0E9;
+    --text-secondary: #CAC4D0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 15px;
+}
+
+/* Scroll Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scroll-animation {
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+    animation-play-state: paused;
+}
+
+.scroll-animation.is-visible {
+    animation-play-state: running;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: rgba(35, 0, 80, 0.9);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+    box-shadow: 0 10px 30px -10px rgba(156, 39, 176, 0.3);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--accent-light);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.app-logo {
+    max-width: 200px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(156, 39, 176, 0.3);
+    border: 3px solid var(--accent-color);
+}
+
+.app-info {
+    flex: 1;
+}
+
+.app-title {
+    font-size: 3.5rem;
+    color: var(--accent-light);
+    margin-bottom: 20px;
+}
+
+.app-details {
+    background-color: rgba(61, 16, 117, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--accent-color);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(156, 39, 176, 0.3);
+}
+
+.download-btn:hover {
+    background-color: var(--accent-light);
+    transform: translateY(-5px);
+}
+
+/* Screenshot Slider */
+.screenshot-slider {
+    background-color: var(--secondary-color);
+}
+
+.slider-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 20px;
+    scrollbar-width: none;
+}
+
+.slider-container::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-item {
+    flex: 0 0 auto;
+    width: 250px;
+    scroll-snap-align: center;
+}
+
+.slider-item img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(156, 39, 176, 0.3);
+    transition: transform 0.3s ease;
+    border: 2px solid var(--accent-color);
+}
+
+.slider-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Original Player Section */
+.original-player {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+    text-align: center;
+}
+
+.player-logo {
+    max-width: 250px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(156, 39, 176, 0.3);
+    border: 3px solid var(--accent-color);
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: var(--secondary-color);
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.contact-form {
+    flex: 1;
+    background-color: rgba(35, 0, 80, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    background-color: rgba(61, 16, 117, 0.5);
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+    color: var(--text-primary);
+}
+
+.contact-form button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(156, 39, 176, 0.3);
+}
+
+.contact-form button:hover {
+    background-color: var(--accent-light);
+    transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid var(--secondary-color);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content, .contact-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .app-title {
+        font-size: 2.5rem;
+    }
+
+    .nav-links {
+        display: none; /* Mobile menu would require additional JavaScript */
+    }
+}
